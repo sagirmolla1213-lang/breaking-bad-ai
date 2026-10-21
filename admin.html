@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07110d"><title>Breaking Bad AI — Admin</title><link rel="stylesheet" href="/style.css"><style>
+.admin-wrap{width:min(1000px,calc(100% - 28px));margin:30px auto}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.admin-head h1{font-size:clamp(22px,4vw,34px);margin:8px 0}.admin-head h1 span{color:var(--green)}.admin-sub{color:var(--muted);font-size:13px}.admin-card{border:1px solid var(--line);background:#0b1510;border-radius:16px;padding:18px;margin-top:18px}.admin-form{display:flex;gap:10px;flex-wrap:wrap}.admin-form input{flex:1;min-width:190px;background:#07100a;border:1px solid #294b34;border-radius:10px;padding:13px;color:white;font:inherit}.admin-form button{border:0;border-radius:10px;background:var(--green);color:#052011;padding:12px 18px;font-weight:700}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.stat{border:1px solid var(--line);background:#0b1510;border-radius:14px;padding:17px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:29px;margin-top:10px;color:var(--green)}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:12px 9px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:#90a997;font-weight:500}.notice{font-size:12px;line-height:1.7;color:#a5b9aa}.error{color:#ff9a9a}.good{color:var(--green)}@media(max-width:650px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:13px}.stat strong{font-size:24px}}
+</style></head>
+<body><main class="admin-wrap">
+  <div class="admin-head"><div><div class="brand"><span class="brand-mark">✦</span><span>BREAKING <b>BAD AI</b></span></div><h1>Admin <span>Control Panel</span></h1><p class="admin-sub">AI ব্যবহারকারী ও request-এর পরিসংখ্যান</p></div><a href="/" style="color:#42e58b;font-size:13px">← AI Chat</a></div>
+  <section id="login-card" class="admin-card"><h2>Admin Login</h2><p class="notice">শুধু মালিকের ADMIN_PASSWORD দিয়ে প্রবেশ করো।</p><form id="login-form" class="admin-form"><input id="password" type="password" placeholder="Admin password" required autocomplete="current-password"><button>Login</button></form><p id="login-error" class="notice error"></p></section>
+  <section id="dashboard" class="hidden">
+    <div class="admin-head" style="margin-top:20px"><div><h2>Overview</h2><p class="admin-sub">সর্বশেষ পাওয়া server metrics</p></div><button id="refresh" class="login-button">↻ Refresh</button></div>
+    <div class="stats">
+      <div class="stat"><span>মোট unique browser ID</span><strong id="users">—</strong></div>
+      <div class="stat"><span>মোট AI request</span><strong id="requests">—</strong></div>
+      <div class="stat"><span>আজকের unique visitor</span><strong id="today-users">—</strong></div>
+      <div class="stat"><span>আজকের request</span><strong id="today-requests">—</strong></div>
+    </div>
+    <section class="admin-card"><h3>সাম্প্রতিক AI ব্যবহার</h3><p class="notice">এখানে পরিচয় নয়, privacy রক্ষার জন্য সংক্ষিপ্ত browser ID দেখানো হয়।</p><div class="table-wrap"><table><thead><tr><th>সময় (UTC)</th><th>Browser ID</th><th>Status</th></tr></thead><tbody id="recent"></tbody></table></div><p id="load-error" class="notice error"></p></section>
+    <p class="notice">গুরুত্বপূর্ণ: এই starter-এর metrics.json server-এর local storage-এ থাকে। Render-এর ephemeral filesystem-এ redeploy/restart হলে data হারাতে পারে। স্থায়ী হিসাবের জন্য database (যেমন Supabase/Postgres বা Firebase) যুক্ত করতে হবে। একজন visitor-এর browser storage মুছলে বা অন্য browser/device ব্যবহার করলে তাকে নতুন visitor হিসেবে গণনা করা হতে পারে।</p>
+  </section>
+</main><script src="/admin.js"></script></body></html>

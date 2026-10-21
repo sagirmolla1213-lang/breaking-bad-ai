@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110d">
+  <title>Breaking Bad AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><span>BREAKING <b>BAD AI</b></span></div>
+      <button id="new-chat" class="new-chat">＋ নতুন চ্যাট</button>
+      <div class="side-label">সাম্প্রতিক চ্যাট</div>
+      <div id="history" class="history"></div>
+      <div class="sidebar-bottom">
+        <div class="profile-dot">P</div>
+        <div><strong>Guest User</strong><small>Starter workspace</small></div>
+        <button id="clear-history" class="icon-button" title="চ্যাট মুছুন">⌫</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menu-button" class="icon-button mobile-only" aria-label="Menu">☰</button>
+        <div class="mobile-brand">✦ BREAKING BAD AI</div>
+        <div class="top-actions"><span class="status-dot"></span><span id="status">AI প্রস্তুত</span><button id="login-button" class="login-button">Login / Signup</button></div>
+      </header>
+
+      <section id="welcome" class="welcome">
+        <div class="orb">✦</div>
+        <p class="eyebrow">YOUR BREAKING BAD AI ASSISTANT</p>
+        <h1>তোমার আইডিয়া, <span>AI-এর শক্তি।</span></h1>
+        <p class="welcome-copy">প্রশ্ন করো, কোড লেখো, ওয়েবসাইট বা অ্যাপ তৈরির পরিকল্পনা করো। শুরু করতে নিচে লিখো।</p>
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="আমার জন্য একটি আধুনিক ওয়েবসাইট তৈরি করার কোড দাও">✧ ওয়েবসাইট তৈরি</button>
+          <button class="suggestion" data-prompt="একটি Android app বানানোর জন্য ধাপে ধাপে গাইড ও project structure দাও">▣ Android অ্যাপ</button>
+          <button class="suggestion" data-prompt="এই কোডের ভুল খুঁজে ঠিক করতে সাহায্য করো">⌘ কোড ঠিক করা</button>
+        </div>
+      </section>
+
+      <section id="chat" class="chat hidden" aria-live="polite"></section>
+      <div class="composer-wrap">
+        <form id="chat-form" class="composer">
+          <textarea id="prompt" rows="1" placeholder="Breaking Bad AI-কে কিছু জিজ্ঞেস করো..." required></textarea>
+          <div class="composer-bottom"><span>AI ভুল করতে পারে—গুরুত্বপূর্ণ তথ্য যাচাই করো</span><button id="send" type="submit" aria-label="Send">↑</button></div>
+        </form>
+        <p class="footer-note">Breaking Bad AI · Dark Green Edition</p>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="login-dialog">
+    <form method="dialog" class="dialog-content">
+      <button class="dialog-close" aria-label="Close">×</button>
+      <div class="brand-mark large">✦</div>
+      <h2>তোমার AI workspace</h2>
+      <p>Login/Signup UI-এর ডেমো। নিরাপদ অ্যাকাউন্টের জন্য Firebase Authentication সেটআপ করতে হবে।</p>
+      <label>ইমেইল<input type="email" id="demo-email" placeholder="you@example.com"></label>
+      <label>পাসওয়ার্ড<input type="password" id="demo-password" placeholder="কমপক্ষে ৬ অক্ষর"></label>
+      <button id="demo-auth" class="primary-button" type="button">Demo continue</button>
+      <small id="auth-note">এই starter-এ বাস্তব login সক্রিয় নয়। README-তে সেটআপ নির্দেশনা আছে।</small>
+    </form>
+  </dialog>
+  <script src="/app.js"></script>
+</body>
+</html>
